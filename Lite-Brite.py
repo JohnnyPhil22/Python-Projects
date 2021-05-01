@@ -12,8 +12,6 @@ color_codes = {
     "r":"red",
     "g":"green",
     "b":"blue",
-    "o":"orange",
-    "y":"yellow",
     "w":"white",
     " ":"black"
 }
@@ -31,11 +29,11 @@ def draw_circle(x, y, pen):
 
 picture = [
 "                            wwwwwww             ",
-"rrr ggg bbb ooo yyy   r  g  w     w  bbb o o yyy",
-"r   g g b b o o y    rr gg  w www w   b  o o y"  ,
-"r   ggg bbb o o yyy   r  g  w w w w   b  ooo yyy",
-"r r gg  b b o o y     r  g  w wwwww   b  o o   y",
-"rrr g g b b ooo yyy   r  g  w        bbb o o yyy",
+"rrr rrr rrr rr  rrr   g  g  w     w  bbb b b bbb",
+"r   r r r r r r r    gg gg  w www w   b  b b b  ",
+"r   rrr rrr r r rrr   g  g  w w w w   b  bbb bbb",
+"r r rr  r r r r r     g  g  w wwwww   b  b b   b",
+"rrr r r r r rr  rrr   g  g  w        bbb b b bbb",
 "                            wwwwwww             ",
 ]
 
