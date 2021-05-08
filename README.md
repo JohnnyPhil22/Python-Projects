@@ -1,3 +1,3 @@
-# Python-Projects-on-Windows 10
-
-Place for all projects done on Windows 10...
+## Python Projects
+<hr>
+# Place for all my Python Projects...
