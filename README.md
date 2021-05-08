@@ -1,3 +1,3 @@
 ## Python Projects
-<hr>
+
 # Place for all my Python Projects...
