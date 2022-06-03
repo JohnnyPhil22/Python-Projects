@@ -97,23 +97,23 @@ while True:
     if Ball.ycor() > 290:
         Ball.sety(290)
         Ball.dy *= -1
-        winsound.PlaySound("Bounce.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("Pong\Bounce.wav", winsound.SND_ASYNC)
     if Ball.ycor() < -290:
         Ball.sety(-290)
         Ball.dy *= -1
-        winsound.PlaySound("Bounce.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("Pong\Bounce.wav", winsound.SND_ASYNC)
     if Ball.xcor() > 390:
         Ball.goto(0, 0)
         Ball.dx *= -1
         Score_A += 1
-        winsound.PlaySound("Cheer.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("Pong\Cheer.wav", winsound.SND_ASYNC)
         Pen.clear()
         Pen.write("Player 1: {}    Player 2: {}".format(Score_A, Score_B), align="center", font=("Courier", 24, "bold"))
     if Ball.xcor() < -390:
         Ball.goto(0, 0)
         Ball.dx *= -1
         Score_B += 1
-        winsound.PlaySound("Cheer.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("Pong\Cheer.wav", winsound.SND_ASYNC)
         Pen.clear()
         Pen.write("Player 1: {}    Player 2: {}".format(Score_A, Score_B), align="center", font=("Courier", 24, "bold"))
 
