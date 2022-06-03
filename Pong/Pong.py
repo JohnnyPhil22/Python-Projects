@@ -121,10 +121,10 @@ while True:
     if (Ball.xcor() > 340 and Ball.xcor() < 350) and (Ball.ycor() < Paddle_B.ycor() + 40 and Ball.ycor() > Paddle_B.ycor() -40):
         Ball.setx(340)
         Ball.dx *= -1
-        winsound.PlaySound("Bounce.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("Pong\Bounce.wav", winsound.SND_ASYNC)
     if (Ball.xcor() < -340 and Ball.xcor() > -350) and (Ball.ycor() < Paddle_A.ycor() + 40 and Ball.ycor() > Paddle_A.ycor() -40):
         Ball.setx(-340)
         Ball.dx *= -1
-        winsound.PlaySound("Bounce.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("Pong\Bounce.wav", winsound.SND_ASYNC)
 
 wn.mainloop()
