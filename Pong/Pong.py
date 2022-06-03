@@ -2,7 +2,7 @@ import turtle
 import winsound
 
 wn = turtle.Screen()
-wn.title("PONG (48th Anniversary Python Edition) - By Jonathan")
+wn.title("PONG - By Jonathan")
 wn.bgcolor("black")
 wn.setup(width=800, height=600)
 wn.tracer(0)
