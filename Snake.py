@@ -7,9 +7,6 @@ from pygame import mixer
 pygame.init()
 mixer.init()
 
-mixer.music.load("Background Music.wav")
-mixer.music.play(loops=-1)
-
 delay=0.1
 
 # Score
