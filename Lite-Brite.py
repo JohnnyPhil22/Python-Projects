@@ -8,13 +8,7 @@ wn.title("Lite-Brite Simulator by Jonathan")
 wn.bgcolor("black")
 wn.setup(WIDTH, HEIGHT)
 
-color_codes = {
-    "r":"red",
-    "g":"green",
-    "b":"blue",
-    "w":"white",
-    " ":"black"
-}
+color_codes = {"v":"violet","i":"indigo","b":"blue","g":"green","y":"yellow","o":"orange","r":"red","w":"white"," ":"black"}
 
 pen = turtle.Turtle()
 pen.penup()
@@ -26,15 +20,14 @@ def draw_circle(x, y, pen):
     screen_y = (HEIGHT/2.0) - 20 - y * 20
     pen.goto(screen_x, screen_y)
     pen.stamp()
-
 picture = [
-"                            wwwwwww             ",
-"rrr rrr rrr rr  rrr   g  g  w     w  bbb b b bbb",
-"r   r r r r r r r    gg gg  w www w   b  b b b  ",
-"r   rrr rrr r r rrr   g  g  w w w w   b  bbb bbb",
-"r r rr  r r r r r     g  g  w wwwww   b  b b   b",
-"rrr r r r r rr  rrr   g  g  w        bbb b b bbb",
-"                            wwwwwww             ",
+"vvvvv iiiii bbbbb ggggg       yyyyy ooooo rrrrr",
+"  v   i   i     b     g       y   y o   o     r",
+"  v   i   i     b     g       y   y o   o     r",
+"  v   iiiii bbbbb ggggg       y   y o   o    r ",
+"v v   i     b     g           y   y o   o   r  ",
+"v v   i     b     g           y   y o   o  r  ",
+"vvv   i     bbbbb ggggg wwwww yyyyy ooooo r   ",
 ]
 
 # Draw picture
