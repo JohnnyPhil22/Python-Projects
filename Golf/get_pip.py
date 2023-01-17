@@ -1,9 +1,4 @@
-import os.path
-import pkgutil
-import shutil
-import sys
-import struct
-import tempfile
+import os.path, pkgutil, shutil, sys, struct, tempfile
 
 # Useful for very coarse version differentiation.
 PY2 = sys.version_info[0] == 2

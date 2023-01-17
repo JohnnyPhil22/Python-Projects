@@ -1,8 +1,4 @@
-import turtle
-import os
-import math
-import random
-import platform
+import turtle, os, math, random, platform
 
 if platform.system() == "Windows":
     try:
@@ -12,14 +8,14 @@ if platform.system() == "Windows":
 
 wn = turtle.Screen()
 wn.bgcolor("black")
-wn.title("Space Invaders by Jonathan")
+wn.title("Space Invaders")
 wn.setup(width=800, height=800)
-wn.bgpic("space_invaders_background.gif")
+wn.bgpic("Python-Projects\Space Invaders\space_invaders_background.gif")
 wn.tracer(0)
 
 # Register shapes
-wn.register_shape("invader.gif")
-wn.register_shape("player.gif")
+wn.register_shape("Python-Projects\Space Invaders\invader.gif")
+wn.register_shape("Python-Projects\Space Invaders\player.gif")
 
 # Draw border
 border_pen = turtle.Turtle()
@@ -50,7 +46,7 @@ score_pen.hideturtle()
 # Create player
 player = turtle.Turtle()
 player.color("blue")
-player.shape("player.gif")
+player.shape("Python-Projects\Space Invaders\player.gif")
 player.penup()
 player.speed(0)
 player.setposition(0, -250)
@@ -73,7 +69,7 @@ enemy_number = 0
 
 for enemy in enemies:
     enemy.color("red")
-    enemy.shape("invader.gif")
+    enemy.shape("Python-Projects\Space Invaders\invader.gif")
     enemy.penup()
     enemy.speed(0)
     x = enemy_start_x + (50 * enemy_number)

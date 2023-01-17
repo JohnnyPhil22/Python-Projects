@@ -1,7 +1,5 @@
 # Import SPGL
-import spgl
-import math
-import random
+import spgl, math, random
 
 # Create Classes
 class MissileCommand(spgl.Game):
@@ -191,7 +189,7 @@ class EnemyMissile(spgl.Sprite):
 # Create Functions
 
 # Initial Game setup
-game = MissileCommand(800, 600, "black", "Missile Command by Jonathan", 5)
+game = MissileCommand(800, 600, "black", "Missile Command", 5)
 game.score = 0
 
 # Create Sprites

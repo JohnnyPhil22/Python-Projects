@@ -1,7 +1,4 @@
-import random
-import turtle
-import winsound
-import time
+import random, turtle, winsound, time
 
 turtle.speed(0)
 turtle.bgcolor("black")

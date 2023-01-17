@@ -1,8 +1,7 @@
-import turtle
-import winsound
+import turtle, winsound
 
 wn = turtle.Screen()
-wn.title("PONG - By Jonathan")
+wn.title("PONG")
 wn.bgcolor("black")
 wn.setup(width=800, height=600)
 wn.tracer(0)

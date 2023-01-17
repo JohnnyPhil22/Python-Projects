@@ -1,6 +1,4 @@
-import sys
-import random
-import pygame
+import sys, random, pygame
 from pygame import mixer
 
 pygame.init()
@@ -11,7 +9,7 @@ mixer.music.play(loops=-1)
 
 delay=0.1
 
-pygame.display.set_caption("Side - Scrolling Shooter by Jonathan")
+pygame.display.set_caption("Side - Scrolling Shooter")
 clock = pygame.time.Clock()
 
 WIDTH = 800

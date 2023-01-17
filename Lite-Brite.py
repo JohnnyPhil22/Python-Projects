@@ -4,7 +4,7 @@ WIDTH = 985
 HEIGHT = 170
 
 wn = turtle.Screen()
-wn.title("Lite-Brite Simulator by Jonathan")
+wn.title("Lite-Brite")
 wn.bgcolor("black")
 wn.setup(WIDTH, HEIGHT)
 

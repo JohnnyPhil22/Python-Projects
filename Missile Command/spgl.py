@@ -1,10 +1,4 @@
-import os
-import turtle
-import time
-import random
-import math
-import pickle
-import platform
+import os, turtle, time, random, math, pickle, platform
 
 # Import message box
 # This code is necessary for Python 2.x and 3.x compatibility
@@ -322,8 +316,8 @@ class Game(object):
     def is_circle_collision(self, sprite_1, sprite_2, radius):
         # Collision based on distance
     	a=sprite_1.xcor()-sprite_2.xcor()
-    	b=sprite_1.ycor()-sprite_2.ycor()
-    	distance = math.sqrt((a**2) + (b**2))
+        b=sprite_1.ycor()-sprite_2.ycor()
+        distance = math.sqrt((a**2) + (b**2))
 
     	if distance < radius:
     		return True

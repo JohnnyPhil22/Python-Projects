@@ -1,10 +1,8 @@
-import turtle
-import math
-import random
+import turtle, math, random
 
 wn = turtle.Screen()
 wn.bgcolor("black")
-wn.title("Asteroids! by Jonathan")
+wn.title("Asteroids!")
 wn.setup(800, 600)
 wn.tracer(0)
 

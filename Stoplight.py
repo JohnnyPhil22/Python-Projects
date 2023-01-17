@@ -1,11 +1,8 @@
-import turtle
-import time
+import turtle, time
 
 wn = turtle.Screen()
-wn.title("Stoplight by Jonathan")
+wn.title("Stoplight")
 wn.bgcolor("black")
-
-
 
 # Draw box around stoplight
 pen = turtle.Turtle()

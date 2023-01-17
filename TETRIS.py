@@ -3,7 +3,7 @@ import time
 import random
 
 wn = turtle.Screen()
-wn.title("TETRIS by Jonathan")
+wn.title("TETRIS")
 wn.bgcolor("NavajoWhite2")
 wn.setup(width=600, height=800)
 wn.tracer(0)

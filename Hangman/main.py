@@ -1,9 +1,7 @@
-import os
-os.system("clear")
-
-import random
+import os, random
 from words import words as words
 
+os.system("clear")
 # Initialize 
 word = random.choice(words)
 guess = "-" * len(word)

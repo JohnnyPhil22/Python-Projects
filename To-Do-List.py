@@ -1,6 +1,5 @@
-import tkinter
+import tkinter, pickle
 import tkinter.messagebox
-import pickle
 
 root = tkinter.Tk()
 root.title("To-Do List by Jonathan")

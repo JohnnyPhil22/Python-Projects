@@ -1,5 +1,4 @@
-import pygame
-import random
+import pygame, random
 from settings import *
 
 vec = pygame.math.Vector2

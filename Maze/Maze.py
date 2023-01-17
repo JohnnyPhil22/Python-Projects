@@ -1,10 +1,8 @@
-import turtle
-import math
-import random
+import turtle, math, random
 
 wn=turtle.Screen()
 wn.bgcolor("black")
-wn.title("Maze by Jonathan")
+wn.title("Maze")
 wn.setup(700,700)
 wn.tracer(0)
 

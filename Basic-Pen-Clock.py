@@ -1,10 +1,9 @@
-import turtle
-import time
+import turtle, time
 
 wn = turtle.Screen()
 wn.bgcolor("black")
 wn.setup(width=600, height=600)
-wn.title("Simple Analog Clock by Jonathan")
+wn.title("Simple Analog Clock")
 wn.tracer(0)
 
 pen=turtle.Turtle()

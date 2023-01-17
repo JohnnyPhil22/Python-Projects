@@ -1,11 +1,9 @@
-import turtle
-import time
-import random
+import turtle, time, random
 
 wn = turtle.Screen()
 wn.bgcolor("black")
 wn.setup(800, 600)
-wn.title("Deck of Cards Simulation by Jonathan")
+wn.title("Deck of Cards Simulation")
 
 pen = turtle.Turtle()
 pen.speed(0)

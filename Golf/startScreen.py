@@ -1,8 +1,6 @@
-import pygame
-import os
+import pygame, os, sys
 import tkinter as tk
 from tkinter import messagebox
-import sys
 
 pygame.init()
 
