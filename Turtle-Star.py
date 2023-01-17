@@ -1,6 +1,6 @@
 from turtle import *
 
-color('red', 'yellow')
+color('yellow', 'yellow')
 begin_fill()
 
 while True:
@@ -9,4 +9,5 @@ while True:
     if abs(pos()) < 1:
         break
 end_fill()
+hideturtle()
 done()
