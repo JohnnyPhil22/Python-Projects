@@ -12,19 +12,19 @@ hr.set('00')
 min.set('00')
 sec.set('00')
 
-hrLabel=Label(root,text='Hours',font=('Arial', 14, ''))
+hrLabel=Label(root,text='Hours',font=('Arial', 14, ''),justify=CENTER)
 hrLabel.place(x=55,y=55)
-hrEntry=Entry(root,width=3,font=('Arial', 18, ''),textvariable=hr)
+hrEntry=Entry(root,width=3,font=('Arial', 18, ''),textvariable=hr,justify=CENTER)
 hrEntry.place(x=62,y=85)
 
-minLabel=Label(root,text='Minutes',font=('Arial', 14, ''))
+minLabel=Label(root,text='Minutes',font=('Arial', 14, ''),justify=CENTER)
 minLabel.place(x=110,y=55)
-minEntry=Entry(root,width=3,font=('Arial', 18, ''),textvariable=min)
+minEntry=Entry(root,width=3,font=('Arial', 18, ''),textvariable=min,justify=CENTER)
 minEntry.place(x=126,y=85)
 
-secLabel=Label(root,text='Seconds',font=('Arial', 14, ''))
+secLabel=Label(root,text='Seconds',font=('Arial', 14, ''),justify=CENTER)
 secLabel.place(x=180,y=55)
-secEntry=Entry(root,width=3,font=('Arial', 18, ''),textvariable=sec)
+secEntry=Entry(root,width=3,font=('Arial', 18, ''),textvariable=sec,justify=CENTER)
 secEntry.place(x=200,y=85)
 
 def submit():
