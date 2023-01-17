@@ -3,7 +3,7 @@ import turtle, time, random
 wn = turtle.Screen()
 wn.bgcolor("black")
 wn.setup(800, 600)
-wn.title("Deck of Cards Simulation")
+wn.title("Five Random Cards Simulation")
 
 pen = turtle.Turtle()
 pen.speed(0)
