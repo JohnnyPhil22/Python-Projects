@@ -1,7 +1,4 @@
-import turtle
-import time
-import random
-import pygame
+import turtle, time, random, pygame
 from pygame import mixer
 
 pygame.init()
