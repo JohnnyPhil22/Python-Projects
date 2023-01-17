@@ -1,6 +1,4 @@
-import turtle
-import time
-import random
+import turtle, time, random
 
 wn = turtle.Screen()
 wn.title("TETRIS")
