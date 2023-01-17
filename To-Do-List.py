@@ -2,7 +2,7 @@ import tkinter, pickle
 import tkinter.messagebox
 
 root = tkinter.Tk()
-root.title("To-Do List by Jonathan")
+root.title("To-Do List")
 
 def add_task():
     task = entry_task.get()
