@@ -7,7 +7,7 @@ wn.setup(700,700)
 wn.tracer(0)
 
 # Register images/shapes
-images = ["wizard_right.gif", "wizard_left.gif", "treasure.gif", "wall.gif", "enemy_right.gif", "enemy_left.gif"]
+images = ["Python-Projects\Maze\wizard_right.gif", "Python-Projects\Maze\wizard_left.gif", "Python-Projects\Maze\gold_chest.gif", "Python-Projects\Maze\wall.gif", "Python-Projects\Maze\enemy_right.gif", "Python-Projects\Maze\enemy_left.gif"]
 for image in images:
     turtle.register_shape(image)
 
@@ -23,7 +23,7 @@ class Pen(turtle.Turtle):
 class Player(turtle.Turtle):
     def __init__(self):
         turtle.Turtle.__init__(self)
-        self.shape("wizard_right.gif")
+        self.shape("Python-Projects\Maze\wizard_right.gif")
         self.color("blue")
         self.penup()
         self.lives = 3
@@ -56,7 +56,7 @@ class Player(turtle.Turtle):
         move_to_x = player.xcor() - 24
         move_to_y = player.ycor()
 
-        self.shape("wizard_left.gif")
+        self.shape("Python-Projects\Maze\wizard_left.gif")
 
         # Check if space has wall
         if (move_to_x, move_to_y) not in walls:
@@ -67,7 +67,7 @@ class Player(turtle.Turtle):
         move_to_x = player.xcor() + 24
         move_to_y = player.ycor()
 
-        self.shape("wizard_right.gif")
+        self.shape("Python-Projects\Maze\wizard_right.gif")
 
         # Check if space has wall
         if (move_to_x, move_to_y) not in walls:
@@ -90,7 +90,7 @@ class Player(turtle.Turtle):
 class Treasure(turtle.Turtle):
     def __init__(self, x, y):
         turtle.Turtle.__init__(self)
-        self.shape("treasure.gif")
+        self.shape("Python-Projects\Maze\gold_chest.gif")
         self.color("gold")
         self.penup()
         self.speed(0)
@@ -104,7 +104,7 @@ class Treasure(turtle.Turtle):
 class Enemy(turtle.Turtle):
     def __init__(self, x, y):
         turtle.Turtle.__init__(self)
-        self.shape("enemy_left.gif")
+        self.shape("Python-Projects\Maze\enemy_left.gif")
         self.color("red")
         self.penup()
         self.speed(0)
@@ -122,11 +122,11 @@ class Enemy(turtle.Turtle):
         elif self.direction == "left":
             dx = -24
             dy = 0
-            self.shape("enemy_left.gif")
+            self.shape("Python-Projects\Maze\enemy_left.gif")
         elif self.direction == "right":
             dx = 24
             dy = 0
-            self.shape("enemy_right.gif")
+            self.shape("Python-Projects\Maze\enemy_right.gif")
         else:
             dx = 0
             dy = 0
@@ -227,7 +227,7 @@ def setup_maze(level):
             # Check if it is an X (wall)
             if character == "X":
                 pen.goto(screen_x, screen_y)
-                pen.shape("wall.gif")
+                pen.shape("Python-Projects\Maze\wall.gif")
                 pen.stamp()
                 # Add coordinates to wall
                 walls.append((screen_x, screen_y))
