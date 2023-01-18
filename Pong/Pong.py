@@ -1,8 +1,10 @@
-import turtle, winsound
+import turtle
+import winsound
 
 wn = turtle.Screen()
 wn.title("PONG")
-wn.bgcolor("black")
+# wn.bgcolor("black")
+wn.bgpic("Python-Projects\Pong\splash_screen.gif")
 wn.setup(width=800, height=600)
 wn.tracer(0)
 
@@ -45,7 +47,7 @@ Pen.color("white")
 Pen.penup()
 Pen.hideturtle()
 Pen.goto(0, 230)
-Pen.write("Player 1: 0    Player 2: 0", align="center", font=("Courier", 24, "bold"))
+Pen.write("0                0", align="center",font=("Courier", 30, "bold"))
 
 # Net
 Net = turtle.Turtle()
@@ -60,22 +62,31 @@ for _ in range(600):
     Net.penup()
 
 # Functions
+
+
 def Paddle_A_up():
     y = Paddle_A.ycor()
     y += 20
     Paddle_A.sety(y)
+
+
 def Paddle_A_down():
     y = Paddle_A.ycor()
     y -= 20
     Paddle_A.sety(y)
+
+
 def Paddle_B_up():
     y = Paddle_B.ycor()
     y += 20
     Paddle_B.sety(y)
+
+
 def Paddle_B_down():
     y = Paddle_B.ycor()
     y -= 20
     Paddle_B.sety(y)
+
 
 # Keyboard Binding
 wn.listen()
@@ -96,34 +107,42 @@ while True:
     if Ball.ycor() > 290:
         Ball.sety(290)
         Ball.dy *= -1
-        winsound.PlaySound("Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
+        winsound.PlaySound(
+            "Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
     if Ball.ycor() < -290:
         Ball.sety(-290)
         Ball.dy *= -1
-        winsound.PlaySound("Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
+        winsound.PlaySound(
+            "Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
     if Ball.xcor() > 390:
         Ball.goto(0, 0)
         Ball.dx *= -1
         Score_A += 1
-        winsound.PlaySound("Python-Projects\Pong\Cheer.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("Python-Projects\Pong\Cheer.wav",
+                           winsound.SND_ASYNC)
         Pen.clear()
-        Pen.write("Player 1: {}    Player 2: {}".format(Score_A, Score_B), align="center", font=("Courier", 24, "bold"))
+        Pen.write("Player 1: {}    Player 2: {}".format(
+            Score_A, Score_B), align="center", font=("Courier", 24, "bold"))
     if Ball.xcor() < -390:
         Ball.goto(0, 0)
         Ball.dx *= -1
         Score_B += 1
-        winsound.PlaySound("Python-Projects\Pong\Cheer.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("Python-Projects\Pong\Cheer.wav",
+                           winsound.SND_ASYNC)
         Pen.clear()
-        Pen.write("Player 1: {}    Player 2: {}".format(Score_A, Score_B), align="center", font=("Courier", 24, "bold"))
+        Pen.write("Player 1: {}    Player 2: {}".format(
+            Score_A, Score_B), align="center", font=("Courier", 24, "bold"))
 
     # Paddle and Ball Collisions
-    if (Ball.xcor() > 340 and Ball.xcor() < 350) and (Ball.ycor() < Paddle_B.ycor() + 40 and Ball.ycor() > Paddle_B.ycor() -40):
+    if (Ball.xcor() > 340 and Ball.xcor() < 350) and (Ball.ycor() < Paddle_B.ycor() + 40 and Ball.ycor() > Paddle_B.ycor() - 40):
         Ball.setx(340)
         Ball.dx *= -1
-        winsound.PlaySound("Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
-    if (Ball.xcor() < -340 and Ball.xcor() > -350) and (Ball.ycor() < Paddle_A.ycor() + 40 and Ball.ycor() > Paddle_A.ycor() -40):
+        winsound.PlaySound(
+            "Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
+    if (Ball.xcor() < -340 and Ball.xcor() > -350) and (Ball.ycor() < Paddle_A.ycor() + 40 and Ball.ycor() > Paddle_A.ycor() - 40):
         Ball.setx(-340)
         Ball.dx *= -1
-        winsound.PlaySound("Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
+        winsound.PlaySound(
+            "Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
 
 wn.mainloop()
