@@ -1,13 +1,15 @@
 from turtle import *
 
-color('yellow', 'yellow')
-begin_fill()
+title('Turtle Star')
+bgcolor('black')
+color('red','red')
 
 while True:
     forward(200)
     left(170)
     if abs(pos()) < 1:
         break
-end_fill()
+
 hideturtle()
-done()
+
+mainloop()
