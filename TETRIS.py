@@ -180,9 +180,9 @@ grid[shape.y][shape.x] = shape.color
 
 
 wn.listen()
-wn.onkeypress(lambda: shape.move_left(grid), "a")
-wn.onkeypress(lambda: shape.move_right(grid), "d")
-wn.onkeypress(lambda: shape.rotate(grid), "space")
+wn.onkeypress(lambda: shape.move_left(grid), "Left")
+wn.onkeypress(lambda: shape.move_right(grid), "Right")
+wn.onkeypress(lambda: shape.rotate(grid), "Up")
 
 # Set the score to 0
 score = 0
