@@ -77,6 +77,12 @@ class Player(Sprite):
         ay = math.sin(math.radians(self.heading))
         self.dx += ax * 0.1
         self.dy += ay * 0.1
+    
+    def decelerate(self):
+        ax = math.cos(math.radians(self.heading))
+        ay = math.sin(math.radians(self.heading))
+        self.dx -= ax * 0.1
+        self.dy -= ay * 0.1
         
     def render(self, pen):
         if self.active:
@@ -148,6 +154,7 @@ wn.listen()
 wn.onkeypress(player.rotate_left, "Left")
 wn.onkeypress(player.rotate_right, "Right")
 wn.onkeypress(player.accelerate, "Up")
+wn.onkeypress(player.decelerate, "Down")
 wn.onkeypress(missile.fire, "space")
 
 while True:
@@ -176,6 +183,9 @@ while True:
                 
                 if player.lives <= 0:
                     player.active = False
+            
+            if player.lives == 0:
+                wn.bye()
                 
             if missile.active and missile.is_collision(sprite):
                 missile.active = False
