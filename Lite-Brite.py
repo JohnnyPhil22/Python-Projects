@@ -1,12 +1,12 @@
 import turtle
 
-WIDTH = 985
-HEIGHT = 170
+WIDTH,HEIGHT=970,170
 
 wn = turtle.Screen()
 wn.title("Lite-Brite")
 wn.bgcolor("black")
 wn.setup(WIDTH, HEIGHT)
+wn.tracer(0)
 
 color_codes = {"r":"red"," ":"black"}
 
@@ -20,17 +20,17 @@ def draw_circle(x, y, pen):
     screen_y = (HEIGHT/2.0) - 20 - y * 20
     pen.goto(screen_x, screen_y)
     pen.stamp()
+
 picture = [
-"rrrrr rrrrr rrrrr rrrrr       rrrrr rrrrr rrrrr",
-"  r   r   r     r     r       r   r r   r     r",
-"  r   r   r     r     r       r   r r   r     r",
-"  r   rrrrr rrrrr rrrrr       r   r r   r    r ",
-"r r   r     r     r           r   r r   r   r  ",
-"r r   r     r     r           r   r r   r  r   ",
-"rrr   r     rrrrr rrrrr rrrrr rrrrr rrrrr r    ",
+"rrrrr rrrrr r   r rrrrr rrrrr r   r rrrrr r   r",
+"  r   r   r r   r r   r   r   r   r r   r r   r",
+"  r   r   r rr  r r   r   r   r   r r   r rr  r",
+"  r   r   r r r r rrrrr   r   rrrrr rrrrr r r r",
+"r r   r   r r  rr r   r   r   r   r r   r r  rr",
+"r r   r   r r   r r   r   r   r   r r   r r   r",
+"rrr   rrrrr r   r r   r   r   r   r r   r r   r",
 ]
 
-# Draw picture
 for y in range(len(picture)):
     row = picture[y]
     for x in range(len(row)):
