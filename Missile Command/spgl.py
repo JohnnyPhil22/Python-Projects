@@ -263,10 +263,10 @@ class Game(object):
         # Mac
         else:
             os.system("afplay {}&".format(sound_file))
-
+            
         if time > 0:
-	        turtle.ontimer(lambda: self.play_sound(sound_file, time), t=int(time * 1000))
-
+            turtle.ontimer(lambda: self.play_sound(sound_file, time), t=int(time * 1000))
+    
     def stop_all_sounds(self):
         # Windows
         if platform.system() == 'Windows':
@@ -280,11 +280,11 @@ class Game(object):
 
     def clear_terminal_screen(self):
         # Windows
-    	if platform.system() == 'Windows':
-    		os.system("cls")
+        if platform.system() == 'Windows':
+            os.system("cls")
         # Linux and Mac
-    	else:
-    		os.system("clear")
+        else:
+            os.system("clear")
 
     def print_game_info(self):
         print (self.title)
@@ -315,14 +315,14 @@ class Game(object):
 
     def is_circle_collision(self, sprite_1, sprite_2, radius):
         # Collision based on distance
-    	a=sprite_1.xcor()-sprite_2.xcor()
+        a=sprite_1.xcor()-sprite_2.xcor()
         b=sprite_1.ycor()-sprite_2.ycor()
         distance = math.sqrt((a**2) + (b**2))
-
-    	if distance < radius:
-    		return True
-    	else:
-    		return False
+        
+        if distance < radius:
+            return True
+        else:
+            return False
 
     def show_game_over(self):
         self.state = "gameover"
@@ -453,16 +453,7 @@ class Sprite(turtle.Turtle):
 
 #Label Class
 class Label(turtle.Turtle):
-    def __init__(self,
-                text,
-                color,
-                x = 0,
-                y = 0,
-                font_name = "Arial",
-                font_size = 12,
-                font_type = "normal",
-                align = "left"):
-
+    def __init__(self,text,color,x = 0,y = 0,font_name = "Arial",font_size = 12,font_type = "normal",align = "left"):
         turtle.Turtle.__init__(self)
         self.hideturtle()
         self.penup()
