@@ -143,7 +143,7 @@ def drawShop(pos=None, click=False):
                                 
                             ballObjects[c].equip()
                             ballObjects[c].equipped = True
-            c = c + 1
+            c += 1
     
     surf = pygame.Surface((1080, 600))
     surf.blit(back,(0,0))
@@ -154,7 +154,7 @@ def drawShop(pos=None, click=False):
     count = 0
     c = 0
     xVal = 0
-    file = open('scores.txt', 'r')
+    file = open('Python-Projects\Golf\scores.txt', 'r')
     for line in file:
         if line.find('True') != -1 or line.find('False') != -1:
             count += 1

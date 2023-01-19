@@ -37,6 +37,7 @@ from time import sleep, time
 import tkinter as tk
 from tkinter import messagebox
 import sys
+import winsound
 
 # INITIALIZATION
 pygame.init()
@@ -89,12 +90,11 @@ start = True
 
 # LOAD MUSIC
 if SOUND:
-    wrong = pygame.mixer.Sound(os.path.join('sounds', 'wrong12.wav'))
-    puttSound = pygame.mixer.Sound(os.path.join('sounds', 'putt.wav'))
-    inHole = pygame.mixer.Sound(os.path.join('sounds', 'inHole.wav'))
-    song = pygame.mixer.music.load(os.path.join('sounds', 'music.mp3'))
-    splash = pygame.mixer.Sound(os.path.join('sounds', 'splash.wav'))
-    pygame.mixer.music.play(-1)
+    wrong = winsound.PlaySound('Python-Projects\Golf\wrong12.wav')
+    puttSound = winsound.PlaySound('Python-Projects\Golf\putt.wav')
+    inHole = winsound.PlaySound('Python-Projects\Golf\inHole.wav')
+    song = winsound.PlaySound('Python-Projects\Golf\music.mp3',winsound.SND_ASYNC)
+    splash = winsound.PlaySound('Python-Projects\Golf\splash.wav')
 
 # POWER UP VARS
 powerUps = 7
