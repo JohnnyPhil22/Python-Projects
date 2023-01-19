@@ -5,9 +5,9 @@ from tkinter import messagebox
 pygame.init()
 
 win = pygame.display.set_mode((1080, 600))
-title = pygame.image.load(os.path.join('img', 'title.png'))
-back = pygame.image.load(os.path.join('img', 'back.png'))
-course = pygame.image.load(os.path.join('img', 'course1.png'))
+title = pygame.image.load('Python-Projects\Golf\start_screen.png')
+back = pygame.image.load('Python-Projects\Golf\layer2.png')
+course = pygame.image.load('Python-Projects\Golf\course1.png')
 course1 = pygame.transform.scale(course, (200, 200))
 
 font = pygame.font.SysFont('comicsansms', 24)
@@ -80,7 +80,7 @@ class ball():
 
 
 def getBest():
-    file = open('scores.txt', 'r')
+    file = open('Python-Projects\Golf\scores.txt', 'r')
     for line in file:
         l = line.split()
         if l[0] == 'score':
@@ -90,7 +90,7 @@ def getBest():
     file.close()
 
 def getCoins():
-    file = open('scores.txt', 'r')
+    file = open('Python-Projects\Golf\scores.txt', 'r')
     for line in file:
         l = line.split()
         if l[0] == 'coins':
