@@ -55,11 +55,11 @@ class App:
         screen.blit(text, pos)
 
     def load(self):
-        self.background = pygame.image.load('maze.png')
+        self.background = pygame.image.load('Python-Projects\Pac-Man\maze.png')
         self.background = pygame.transform.scale(self.background, (MAZE_WIDTH, MAZE_HEIGHT))
 
         # Opening walls file and creating walls list with coordinates of walls stored as a vector
-        with open("walls.txt", 'r') as file:
+        with open("Python-Projects\Pac-Man\walls.txt") as file:
             for yidx, line in enumerate(file):
                 for xidx, char in enumerate(line):
                     if char == "1":
@@ -98,7 +98,7 @@ class App:
             enemy.direction *= 0
 
         self.coins = []
-        with open("walls.txt", 'r') as file:
+        with open("Python-Projects\Pac-Man\walls.txt") as file:
             for yidx, line in enumerate(file):
                 for xidx, char in enumerate(line):
                     if char == 'C':
@@ -118,7 +118,7 @@ class App:
         pass
 
     def start_draw(self):
-        winsound.PlaySound("intro_music.wav", winsound.SND_ALIAS)
+        winsound.PlaySound("Python-Projects\Pac-Man\intro_music.wav", winsound.SND_ALIAS)
         self.screen.fill(BLACK)
         self.draw_text('PUSH SPACE BAR', self.screen, [
                        WIDTH//2, HEIGHT//2-50], START_TEXT_SIZE, (170, 132, 58), START_FONT, centered=True)
@@ -167,7 +167,7 @@ class App:
         self.player.lives -= 1
         if self.player.lives == 0:
             self.state = "game over"
-            winsound.PlaySound("death.wav", winsound.SND_ALIAS)            
+            winsound.PlaySound("Python-Projects\Pac-Man\death.wav", winsound.SND_ALIAS)            
         else:
             self.player.grid_pos = vec(self.player.starting_pos)
             self.player.pix_pos = self.player.get_pix_pos()

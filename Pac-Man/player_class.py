@@ -50,7 +50,7 @@ class Player:
 
     def eat_coin(self):
         self.app.coins.remove(self.grid_pos)
-        winsound.PlaySound("chomp.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("Python-Projects\Pac-Man\chomp.wav", winsound.SND_ASYNC)
         self.current_score += 1
 
     def move(self, direction):
