@@ -47,7 +47,7 @@ Pen.color("white")
 Pen.penup()
 Pen.hideturtle()
 Pen.goto(0, 230)
-Pen.write("0                0", align="center",font=("Courier", 30, "bold"))
+Pen.write("0                0", align="center",font=("commodore 64 pixelized", 30, "bold"))
 
 # Net
 Net = turtle.Turtle()
@@ -118,31 +118,25 @@ while True:
         Ball.goto(0, 0)
         Ball.dx *= -1
         Score_A += 1
-        winsound.PlaySound("Python-Projects\Pong\Cheer.wav",
-                           winsound.SND_ASYNC)
+        winsound.PlaySound("Python-Projects\Pong\Cheer.wav", winsound.SND_ASYNC)
         Pen.clear()
-        Pen.write("Player 1: {}    Player 2: {}".format(
-            Score_A, Score_B), align="center", font=("Courier", 24, "bold"))
+        Pen.write(f"{Score_A}                {Score_B}", align="center", font=("commodore 64 pixelized", 24, "bold"))
     if Ball.xcor() < -390:
         Ball.goto(0, 0)
         Ball.dx *= -1
         Score_B += 1
-        winsound.PlaySound("Python-Projects\Pong\Cheer.wav",
-                           winsound.SND_ASYNC)
+        winsound.PlaySound("Python-Projects\Pong\Cheer.wav", winsound.SND_ASYNC)
         Pen.clear()
-        Pen.write("Player 1: {}    Player 2: {}".format(
-            Score_A, Score_B), align="center", font=("Courier", 24, "bold"))
+        Pen.write(f"{Score_A}                {Score_B}", align="center", font=("commodore 64 pixelized", 24, "bold"))
 
     # Paddle and Ball Collisions
     if (Ball.xcor() > 340 and Ball.xcor() < 350) and (Ball.ycor() < Paddle_B.ycor() + 40 and Ball.ycor() > Paddle_B.ycor() - 40):
         Ball.setx(340)
         Ball.dx *= -1
-        winsound.PlaySound(
-            "Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
     if (Ball.xcor() < -340 and Ball.xcor() > -350) and (Ball.ycor() < Paddle_A.ycor() + 40 and Ball.ycor() > Paddle_A.ycor() - 40):
         Ball.setx(-340)
         Ball.dx *= -1
-        winsound.PlaySound(
-            "Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("Python-Projects\Pong\Bounce.wav", winsound.SND_ASYNC)
 
 wn.mainloop()
