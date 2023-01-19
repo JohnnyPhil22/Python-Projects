@@ -4,9 +4,6 @@ from pygame import mixer
 pygame.init()
 mixer.init()
 
-mixer.music.load("Background Music.wav")
-mixer.music.play(loops=-1)
-
 delay=0.1
 
 pygame.display.set_caption("Side - Scrolling Shooter")
@@ -22,10 +19,6 @@ GREEN = (0, 255, 0)
 # Create the screen
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-# icon = pygame.image.load("enemy.png").convert()
-# icon = pygame.transform.scale(icon , (64, 64))
-# pygame.display.set_icon(icon)
-
 # Create the classes
 class Player():
     def __init__(self):
@@ -33,7 +26,7 @@ class Player():
         self.y = 0
         self.dy = 0
         self.dx = 0
-        self.surface = pygame.image.load('player.png').convert()
+        self.surface = pygame.image.load('Python-Projects\Side Scrolling Shooter\player.png').convert()
         self.score = 0
         self.max_health = 20
         self.health = self.max_health
@@ -86,7 +79,7 @@ class Missile():
         self.x = 0
         self.y = 1000
         self.dx = 0
-        self.surface = pygame.image.load('missile.png').convert()
+        self.surface = pygame.image.load('Python-Projects\Side Scrolling Shooter\missile.png').convert()
         self.state = "ready"
     
     def fire(self):
@@ -115,7 +108,7 @@ class Enemy():
         self.y = random.randint(0, 550)
         self.dx = random.randint(10, 50) / -10
         self.dy = 0
-        self.surface = pygame.image.load('enemy.png')
+        self.surface = pygame.image.load('Python-Projects\Side Scrolling Shooter\enemy.png')
         self.max_health = random.randint(5, 15)
         self.health = self.max_health
         self.type = "enemy"
@@ -153,7 +146,7 @@ class Star():
         self.x = random.randint(0, 1000)
         self.y = random.randint(0, 550)
         self.dx = random.randint(10, 50) / -30
-        images = ["yellow_star.png", "red_star.png", "white_star.png"]
+        images = ["Python-Projects\Side Scrolling Shooter\star_yellow.png", "Python-Projects\Side Scrolling Shooter\star_red.png", "Python-Projects\Side Scrolling Shooter\star_white.png"]
         self.surface = pygame.image.load(random.choice(images))
 
     def move(self):
@@ -172,8 +165,8 @@ class Star():
 
 
 # Create sounds
-missile_sound = pygame.mixer.Sound("missile.wav")
-explosion_sound = pygame.mixer.Sound("explosion.wav")
+missile_sound = pygame.mixer.Sound("Python-Projects\Side Scrolling Shooter\missile.wav")
+explosion_sound = pygame.mixer.Sound("Python-Projects\Side Scrolling Shooter\explosion.wav")
 
 # Create font
 font = pygame.font.SysFont("comicsansms", 24)
@@ -240,7 +233,7 @@ while True:
                     
                     player.kills += 1
                     if player.kills % 10 == 0:
-                        enemy.surface = pygame.image.load('boss.png').convert()
+                        enemy.surface = pygame.image.load('Python-Projects\Side Scrolling Shooter\ze_boss.png').convert()
                         enemy.max_health = 50
                         enemy.health = enemy.max_health
                         enemy.dy = random.randint(-5, 5)
@@ -248,7 +241,7 @@ while True:
                     else:
                         enemy.type = "enemy"
                         enemy.dy = 0
-                        enemy.surface = pygame.image.load('enemy.png').convert()
+                        enemy.surface = pygame.image.load('Python-Projects\Side Scrolling Shooter\enemy.png').convert()
                         enemy.max_health = random.randint(5, 15)
                         enemy.health = enemy.max_health
                 else:
