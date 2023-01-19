@@ -3,7 +3,7 @@ import os, turtle, time, random, math, pickle, platform
 # Import message box
 # This code is necessary for Python 2.x and 3.x compatibility
 try:
-    import tkMessageBox as messagebox
+    import tkinter.messagebox as messagebox
 except:
     from tkinter import messagebox
 
@@ -11,7 +11,7 @@ except:
 try:
 	from tkinter import filedialog
 except:
-	import tkFileDialog as filedialog
+	import tkinter.filedialog as filedialog
 
 
 # If on Windows, import winsound or, better yet, switch to Linux!
