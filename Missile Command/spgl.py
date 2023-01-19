@@ -71,7 +71,7 @@ class Game(object):
                 screen_width = 800,
                 screen_height = 600,
                 background_color = "black",
-                title = "Simple Game Library by Jonathan",
+                title = "Simple Game Library",
                 splash_time = 3):
 
         # Setup using Turtle module methods
@@ -171,7 +171,7 @@ class Game(object):
         self.update_screen()
 
     def click(self, x, y):
-        print ("The window was clicked at ({},{})".format(x, y))
+        print (f"The window was clicked at ({x},{y})")
 
     def show_splash(self, seconds):
         # Show splash screen
@@ -192,7 +192,7 @@ class Game(object):
             turtle.bgpic("")
 
         except:
-            Game.logs.append("Warning: {} missing from disk.".format(self.SPLASHFILE))
+            Game.logs.append(f"Warning: {self.SPLASHFILE} missing from disk.")
 
         # Change state to running
         self.state = "running"
@@ -208,7 +208,7 @@ class Game(object):
             data = pickle.load(open(self.DATAFILE, "rb"))
         except:
             data = {}
-            Game.logs.append("Warning: Creating new {} file on disk.".format(self.DATAFILE))
+            Game.logs.append(f"Warning: Creating new {self.DATAFILE} file on disk.")
 
         data[key] = value
 
@@ -221,7 +221,7 @@ class Game(object):
             data = pickle.load(open(self.DATAFILE, "rb"))
         except:
             data = {}
-            Game.logs.append("Warning: {} missing from disk.".format(self.DATAFILE))
+            Game.logs.append(f"Warning: {self.DATAFILE} missing from disk.")
 
         if key in data:
             return data[key]
@@ -289,7 +289,7 @@ class Game(object):
     def print_game_info(self):
         print (self.title)
         print ("")
-        print ("Window Dimensions: {}x{}".format(self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
+        print (f"Window Dimensions: {self.SCREEN_WIDTH}x{self.SCREEN_HEIGHT}")
         print ("")
 
         # Calcuate number of active sprites
@@ -298,12 +298,12 @@ class Game(object):
             if sprite.state:
                 active_sprites += 1
 
-        print ("Number of Sprites (Active / Total): {} / {}".format(active_sprites, len(Game.sprites)))
+        print (f"Number of Sprites (Active / Total): {active_sprites} / {len(Game.sprites)}")
 
-        print ("Number of Labels: {}".format(len(Game.labels)))
-        print ("Number of Buttons: {}".format(len(Game.buttons)))
+        print (f"Number of Labels: {len(Game.labels)}")
+        print (f"Number of Buttons: {len(Game.buttons)}")
         print ("")
-        print ("Frames Per Second (Target): {}".format(self.fps))
+        print (f"Frames Per Second (Target): {self.fps}")
         print ("")
         self.print_error_logs()
 
@@ -334,7 +334,7 @@ class Game(object):
         if image.endswith(".gif"):
             turtle.bgpic(image)
         else:
-            Game.logs.append("Warning: Background image {} must be a gif.".format(image))
+            Game.logs.append(f"Warning: Background image {image} must be a GIF.")
 
     def set_fps(self, fps):
         self.fps = fps
@@ -363,7 +363,7 @@ class Sprite(turtle.Turtle):
             try:
                 turtle.register_shape(shape)
             except:
-                Game.logs.append("Warning: {} file missing from disk.".format(shape))
+                Game.logs.append(f"Warning: {shape} file missing from disk.")
 
                 # Set placeholder shape
                 shape = "square"
@@ -417,7 +417,7 @@ class Sprite(turtle.Turtle):
             try:
                 turtle.register_shape(image)
             except:
-                Game.logs.append("Warning: {} file missing from disk.".format(image))
+                Game.logs.append(f"Warning: {image} file missing from disk.")
 
                 # Set placeholder shape
                 image = "square"
@@ -436,7 +436,7 @@ class Sprite(turtle.Turtle):
         self.height = height
 
     def click(self, x, y):
-        print ("The sprite was clicked at ({},{})".format(x, y))
+        print (f"The sprite was clicked at ({x},{y})")
 
     def rotate_left(self, degrees):
         self.lt(degrees)
@@ -453,7 +453,7 @@ class Sprite(turtle.Turtle):
 
 #Label Class
 class Label(turtle.Turtle):
-    def __init__(self,text,color,x = 0,y = 0,font_name = "Arial",font_size = 12,font_type = "normal",align = "left"):
+    def __init__(self,text,color,x = 0,y = 0,font_name = "commodore 64 pixelized",font_size = 12,font_type = "normal",align = "left"):
         turtle.Turtle.__init__(self)
         self.hideturtle()
         self.penup()
@@ -509,7 +509,7 @@ class Button(turtle.Turtle):
             try:
                 turtle.register_shape(shape)
             except:
-                Game.logs.append("Warning: {} file missing from disk.".format(shape))
+                Game.logs.append(f"Warning: {shape} file missing from disk.")
 
                 # Set placeholder shape
                 shape = "square"
@@ -530,7 +530,7 @@ class Button(turtle.Turtle):
             try:
                 turtle.register_shape(shape)
             except:
-                Game.logs.append("Warning: {} file missing from disk.".format(shape))
+                Game.logs.append(f"Warning: {shape} file missing from disk.")
 
                 # Set placeholder shape
                 shape = "square"
@@ -542,4 +542,4 @@ class Button(turtle.Turtle):
         self.onclick(self.click)
 
     def click(self, x, y):
-        print ("The button was clicked at ({},{})".format(x, y))
+        print (f"The button was clicked at ({x},{y})")

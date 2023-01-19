@@ -39,8 +39,8 @@ score_pen.speed(0)
 score_pen.color("white")
 score_pen.penup()
 score_pen.goto(-290, 270)
-scorestring = "Score: {}".format(score)
-score_pen.write(scorestring, False, align="left", font=("Arial", 14, "normal"))
+scorestring = f"Score: {score}"
+score_pen.write(scorestring, False, align="left", font=("commodore 64 pixelized", 14, "normal"))
 score_pen.hideturtle()
 
 # Create player
@@ -193,9 +193,9 @@ while True:
             
             # Update score
             score += 10
-            scorestring = "Score: {}".format(score)
+            scorestring = f"Score: {score}"
             score_pen.clear()
-            score_pen.write(scorestring, False, align="left", font=("Arial", 14, "normal"))
+            score_pen.write(scorestring, False, align="left", font=("commodore 64 pixelized", 14, "normal"))
 
             # Play sound
             play_sound("explosion.wav")

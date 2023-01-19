@@ -2,8 +2,9 @@ import random, turtle, winsound, time
 
 turtle.speed(0)
 turtle.bgcolor("black")
-turtle.title("SpaceWar by Jonathan")
-turtle.bgpic("starfield.gif")
+turtle.title("SpaceWar")
+turtle.setup(700,700)
+turtle.bgpic("Python-Projects\Space War\starfield.gif")
 turtle.ht()
 turtle.setundobuffer(1)
 turtle.tracer(0)
@@ -161,10 +162,10 @@ class Game():
     
     def show_status(self):
         self.pen.undo()
-        msg = "Score: %s" %(self.score)
+        msg = f"Score: {self.score}"
         self.pen.penup()
         self.pen.goto(-300, 310)
-        self.pen.write(msg, font=("Arial", 16, "normal"))
+        self.pen.write(msg, font=("commodore 64 pixelized", 16, "normal"))
 
 # Create game object
 game = Game()

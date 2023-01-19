@@ -166,7 +166,7 @@ def draw_score(pen, score):
     pen.color("blue")
     pen.hideturtle()
     pen.goto(-75, 350)
-    pen.write("Score: {}".format(score), move=False, align="left", font=("Arial", 24, "normal"))
+    pen.write(f"Score: {score}", move=False, align="left", font=("commodore 64 pixelized", 24, "normal"))
     
 
 # Create the basic shape for the start of the game

@@ -294,7 +294,7 @@ while True:
         game.score += (city_bonus + silo_bonus + missile_bonus)
 
         print("Level {} Complete".format(game.level))
-        print("City Bonus: {}  Silo Bonus: {}  Missile Bonus: {}".format(city_bonus, silo_bonus, missile_bonus))
+        print(f"City Bonus: {city_bonus}  Silo Bonus: {silo_bonus}  Missile Bonus: {missile_bonus}")
         game.level += 1
 
         # Reset enemy missiles
@@ -327,4 +327,4 @@ while True:
             player_missiles[i].clear()
 
     # Update status label
-    status_label.update("Missile Command  \nLevel: {}  \nScore: {}  \nCities: {}  \nSilos: {}  \nPlayer Missiles: {}  \nEnemy Missiles: {}".format(game.level, game.score, len(cities), len(silos), len(player_missiles), len(enemy_missiles)))
+    status_label.update(f"Missile Command  \nLevel: {game.level}  \nScore: {game.score}  \nCities: {len(cities)}  \nSilos: {len(silos)}  \nPlayer Missiles: {len(player_missiles)}  \nEnemy Missiles: {len(enemy_missiles)}")

@@ -159,7 +159,7 @@ wn.onkeypress(missile.fire, "space")
 
 while True:
     pen.goto(-350, 250)
-    pen.write(f"{player.score}", False, font=("Courier New", 18, "normal"))
+    pen.write(f"{player.score}", False, font=("commodore 64 pixelized", 18, "normal"))
 
     pen.clear()
     

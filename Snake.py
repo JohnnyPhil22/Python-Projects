@@ -44,7 +44,7 @@ pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
-pen.write("Score: O    High Score: 0", align="center", font=("Courier", 24, "bold"))
+pen.write("Score: 0    High Score: 0", align="center", font=("commodore 64 pixelized", 20, "normal"))
 
 # Functions
 def go_up():
@@ -103,7 +103,7 @@ while True:
         # Reset the delay
         delay = 0.1
         pen.clear()
-        pen.write("Score: {}    High Score: {}". format(score, high_score), align="center", font=("Courier", 24, "bold"))
+        pen.write(f"Score: {score}    High Score: {high_score}", align="center", font=("commodore 64 pixelized", 20, "normal"))
 
     # Check for collision with food
     if head.distance(food) < 20:
@@ -130,7 +130,7 @@ while True:
             high_score = score
 
         pen.clear()
-        pen.write("Score: {}    High Score: {}". format(score, high_score), align="center", font=("Courier", 24, "bold"))
+        pen.write(f"Score: {score}    High Score: {high_score}", align="center", font=("commodore 64 pixelized", 20, "normal"))
 
     # Move the end segment first in reverse order
     for index in range(len(segments)-1, 0, -1):
@@ -166,7 +166,7 @@ while True:
             # Reset the delay
             delay = 0
             pen.clear()
-            pen.write("Score: {}    High Score: {}". format(score, high_score), align="center", font=("Courier", 24, "bold"))
+            pen.write(f"Score: {score}    High Score: {high_score}", align="center", font=("commodore 64 pixelized", 20, "normal"))
 
     time.sleep(delay)
 wn.mainloop()
