@@ -17,5 +17,5 @@ WHITE = (255, 255, 255)
 PLAYER_COLOUR = (190, 194, 15)
 
 # font settings
-START_TEXT_SIZE = 64
+START_TEXT_SIZE = 32
 START_FONT = 'commodore 64 pixelized'
