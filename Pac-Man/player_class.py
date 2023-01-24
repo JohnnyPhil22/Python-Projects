@@ -13,6 +13,7 @@ class Player:
         self.stored_direction = None
         self.able_to_move = True
         self.current_score = 0
+        self.high_score = 0
         self.speed = 2
         self.lives = 1
 
@@ -52,6 +53,8 @@ class Player:
         self.app.coins.remove(self.grid_pos)
         winsound.PlaySound("Python-Projects\Pac-Man\chomp.wav", winsound.SND_ASYNC)
         self.current_score += 1
+        if self.high_score<self.current_score:
+            self.high_score=self.current_score
 
     def move(self, direction):
         self.stored_direction = direction

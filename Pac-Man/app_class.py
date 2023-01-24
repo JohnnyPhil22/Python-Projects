@@ -155,9 +155,8 @@ class App:
         self.screen.fill(BLACK)
         self.screen.blit(self.background, (TOP_BOTTOM_BUFFER//2, TOP_BOTTOM_BUFFER//2))
         self.draw_coins()
-        self.draw_text('CURRENT SCORE: {}'.format(self.player.current_score),
-                       self.screen, [60, 0], 18, WHITE, START_FONT)
-        self.draw_text('HIGH SCORE: 0', self.screen, [WIDTH//2+60, 0], 18, WHITE, START_FONT)
+        self.draw_text(f'CURRENT SCORE: {self.player.current_score}',self.screen, [60, 0], 18, WHITE, START_FONT)
+        self.draw_text(f'HIGH SCORE: {self.player.high_score}', self.screen, [WIDTH//2+60, 0], 18, WHITE, START_FONT)
         self.player.draw()
         for enemy in self.enemies:
             enemy.draw()
@@ -165,6 +164,7 @@ class App:
 
     def remove_life(self):
         self.player.lives -= 1
+        self.player.current_score=0
         if self.player.lives == 0:
             self.state = "game over"
             winsound.PlaySound("Python-Projects\Pac-Man\death.wav", winsound.SND_ALIAS)            
