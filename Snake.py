@@ -110,7 +110,7 @@ while True:
         
         # Move food to a random spot on screen
         x = random.randint(-290,290)
-        y = random.randint(-290,290)
+        y = random.randint(-290,250)
         food.goto(x,y)
 
         # Add a segment
