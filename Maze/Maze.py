@@ -188,9 +188,9 @@ level_1 = [
     "X         XXXXXXXXXXXXXXXX",
     "X              TXXXXXXXXXX",
     "X               XXXXXXXXXX",
-    "XXXXXXXXXXXX    XXXXXXX  X",
-    "XXXXXXXXXXXXXX  XXXXXXX  X",
-    "XXX  XXXXXXXXX           X",
+    "XXXX XXXXXXX    XXXXXXX  X",
+    "XXXE TXXXXXXXX  XXXXXXX  X",
+    "XXXXXXXXXXXXXX           X",
     "XXXE                     X",
     "XXX        XXXXXXXXXXXXXXX",
     "XXXXXXXXXETXXXXXXXXXXXXXXX",
@@ -276,7 +276,7 @@ while True:
 
             # Add treasure gold to player gold
             player.gold += treasure.gold
-            print("Player Gold: ", format(player.gold))
+            print(f"Player Gold: {player.gold}")
             
             # Destroy treasure
             treasure.destroy()
@@ -286,7 +286,13 @@ while True:
     
     for enemy in enemies:
         if player.is_collision(enemy):
-            player.gold -= 50
+            player.gold-=50
+            print(f"Player Gold: {player.gold}")
+            player.lives-=1
+            print(f"Player Lives: {player.lives}")
+            if player.lives==player.no_lives:
+                print(f"Player Gold: {player.gold}")
+                wn.bye()
      
     # Update Screen
     wn.update()
