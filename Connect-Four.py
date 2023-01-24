@@ -1,13 +1,9 @@
 import numpy as np
 import pygame, sys, math
 
-BLUE = (0,0,255)
-BLACK = (0,0,0)
-RED = (255,0,0)
-YELLOW = (255,255,0)
+BLUE,BLACK,RED,YELLOW=(0,0,255),(0,0,0),(255,0,0),(255,255,0)
 
-ROW_COUNT = 6
-COLUMN_COUNT = 7
+ROW_COUNT,COLUMN_COUNT=6,7
 
 def create_board():
     board = np.zeros((ROW_COUNT,COLUMN_COUNT))
@@ -66,17 +62,14 @@ def draw_board(board):
     pygame.display.update()
 
 
-board = create_board()
+board,game_over,turn=create_board(),False,0
 print_board(board)
-game_over = False
-turn = 0
 
 pygame.init()
 
 SQUARESIZE = 100
 
-width = COLUMN_COUNT * SQUARESIZE
-height = (ROW_COUNT+1) * SQUARESIZE
+width,height= COLUMN_COUNT * SQUARESIZE,(ROW_COUNT+1) * SQUARESIZE
 
 size = (width, height)
 
@@ -86,7 +79,7 @@ screen = pygame.display.set_mode(size)
 draw_board(board)
 pygame.display.update()
 
-myfont = pygame.font.SysFont("monospace", 75)
+myfont = pygame.font.SysFont("commodore 64 pixelized", 58)
 
 while not game_over:
     for event in pygame.event.get():
