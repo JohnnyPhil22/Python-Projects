@@ -24,7 +24,7 @@ def draw_clock(h, m, s, pen):
     pen.penup()
     pen.goto(0,0)
     pen.setheading(90)
-    for _ in range(12):
+    for i in range(12):
         pen.fd(190)
         pen.pendown()
         pen.fd(20)
