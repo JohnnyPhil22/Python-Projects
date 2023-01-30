@@ -80,7 +80,7 @@ class Button:
             if self.form.current_column > 5:
                 this_word = self.get_word(self.form.current_row).lower()
                 if this_word not in self.form.words:
-                    tkinter.messagebox.showerror(f"Not a valid word","{this_word.upper()} isn't a valid word")
+                    tkinter.messagebox.showerror("Not a valid word",this_word.upper()+" isn't a valid word")
                     return
                 self.colour_current_row(self.form.target_word.upper(),this_word.upper(),self.form.current_row)
                 self.form.current_column = 1
