@@ -7,10 +7,10 @@ def play_wordle(words : list) -> None:
     while len(words) > 1:
         letters_in_word = []
         for i in range(5):
-            letter = input("What letter did you put in position " + str(i+1) +"?: ").lower()
+            letter = input("Letter in position " + str(i+1) +": ").lower()
             color = input("What color is it (Green, Yellow, Grey): ").lower()
             if color != 'green' and color != 'yellow' and color != 'grey':
-                print("Invalid input")
+                print("Invalid input...")
                 return
             words_to_remove = []
             for word in words:
