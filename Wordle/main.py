@@ -169,7 +169,7 @@ def add_letters(wordle_form):
 
 def get_target_word(path:str):
     words = []
-    with open(path + "\wordle_targets.txt","r") as target_words:
+    with open(path + "\wordle_targets.txt") as target_words:
         words = target_words.read().splitlines()[1:]
     number_words = len(words)
     word_number = random.randint(0, number_words-1)
@@ -177,7 +177,7 @@ def get_target_word(path:str):
     return this_word
 
 def get_allowed_word_guesses(path:str):
-    with open(path + "\words.txt","r") as target_words:
+    with open(path + "\words.txt") as target_words:
         words = target_words.read().splitlines()
     return words
 
