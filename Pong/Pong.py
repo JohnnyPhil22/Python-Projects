@@ -3,7 +3,6 @@ import winsound
 
 wn = turtle.Screen()
 wn.title("PONG")
-# wn.bgcolor("black")
 wn.bgpic("Python-Projects\Pong\splash_screen.gif")
 wn.setup(width=800, height=600)
 wn.tracer(0)
