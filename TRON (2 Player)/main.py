@@ -25,19 +25,19 @@ def draw():
     p2xy.move(p2aim)
     p2head = p2xy.copy()
 
-    if not inside(p1head) or p1head in p2body:
+    if p1head in p1body or p1head in p2body:
         print('Player blue wins!')
         return
 
-    if not inside(p2head) or p2head in p1body:
+    if p2head in p2body or p2head in p1body:
         print('Player red wins!')
         return
 
     p1body.add(p1head)
     p2body.add(p2head)
 
-    square(p1xy.x, p1xy.y, 3, 'red')
-    square(p2xy.x, p2xy.y, 3, 'blue')
+    square(p1xy.x, p1xy.y, 3, 'orange')
+    square(p2xy.x, p2xy.y, 3, 'cyan')
     turtle.update()
     turtle.ontimer(draw, 50)
 
