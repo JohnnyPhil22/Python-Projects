@@ -15,8 +15,10 @@ p2xy = vector(100, 0)
 p2aim = vector(-4, 0)
 p2body = set()
 
+
 def inside(head):
     return -200 < head.x < 200 and -200 < head.y < 200
+
 
 def draw():
     p1xy.move(p1aim)
@@ -26,11 +28,21 @@ def draw():
     p2head = p2xy.copy()
 
     if p1head in p1body or p1head in p2body:
-        print('Cyan wins!')
+        turtle.clear()
+        turtle.penup()
+        turtle.goto(-65, 0)
+        turtle.pendown()
+        turtle.color('cyan')
+        turtle.write('Cyan wins!', font=('Arial', 20))
         return
-
+    
     if p2head in p2body or p2head in p1body:
-        print('Orange wins!')
+        turtle.clear()
+        turtle.penup()
+        turtle.goto(-80, 0)
+        turtle.pendown()
+        turtle.color('orange')
+        turtle.write("Orange wins!", font=('Arial', 20))
         return
 
     p1body.add(p1head)
@@ -40,6 +52,7 @@ def draw():
     square(p2xy.x, p2xy.y, 3, 'cyan')
     turtle.update()
     turtle.ontimer(draw, 50)
+
 
 turtle.listen()
 turtle.onkey(lambda: p1aim.rotate(90), 'a')

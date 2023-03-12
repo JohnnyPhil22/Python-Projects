@@ -32,11 +32,23 @@ def draw():
     p2head = p2xy.copy()
 
     if p1head in p1body or p1head in p2body:
-        print("Cyan wins!")
+        turtle.clear()
+        turtle.penup()
+        turtle.goto(-65,0)
+        turtle.pendown()
+        turtle.color('cyan')
+        turtle.write('Cyan wins!',font=('Arial',20))
         return
+    
     if p2head in p2body or p2head in p1body:
-        print("Orange wins!")
+        turtle.clear()
+        turtle.penup()
+        turtle.goto(-80,0)
+        turtle.pendown()
+        turtle.color('orange')
+        turtle.write("Orange wins!",font=('Arial',20))
         return
+    
     p1body.add(p1head)
     p2body.add(p2head)
 
