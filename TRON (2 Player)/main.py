@@ -26,11 +26,11 @@ def draw():
     p2head = p2xy.copy()
 
     if p1head in p1body or p1head in p2body:
-        print('Player blue wins!')
+        print('Cyan wins!')
         return
 
     if p2head in p2body or p2head in p1body:
-        print('Player red wins!')
+        print('Orange wins!')
         return
 
     p1body.add(p1head)
