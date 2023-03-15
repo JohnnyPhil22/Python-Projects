@@ -39,8 +39,7 @@ score_pen.speed(0)
 score_pen.color("white")
 score_pen.penup()
 score_pen.goto(-290, 270)
-scorestring = f"Score: {score}"
-score_pen.write(scorestring, False, align="left", font=("commodore 64 pixelized", 14, "normal"))
+score_pen.write(f"Score: {score}", False, align="left", font=("commodore 64 pixelized", 14, "normal"))
 score_pen.hideturtle()
 
 # Create player
@@ -136,8 +135,7 @@ def isCollision(t1, t2):
         return False
 
 def play_sound(sound_file, time=0):
-    if platform.system() == "Windows":
-        winsound.PlaySound(sound_file, winsound.SND_ASYNC)
+    winsound.PlaySound(sound_file, winsound.SND_ASYNC)
     
     # Repeat sound
     if time > 0:
@@ -193,9 +191,8 @@ while True:
             
             # Update score
             score += 10
-            scorestring = f"Score: {score}"
             score_pen.clear()
-            score_pen.write(scorestring, False, align="left", font=("commodore 64 pixelized", 14, "normal"))
+            score_pen.write(f"Score: {score}", False, align="left", font=("commodore 64 pixelized", 14, "normal"))
 
             # Play sound
             play_sound("explosion.wav")
