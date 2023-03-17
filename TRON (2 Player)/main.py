@@ -57,8 +57,8 @@ def draw():
 turtle.listen()
 turtle.onkey(lambda: p1aim.rotate(90), 'a')
 turtle.onkey(lambda: p1aim.rotate(-90), 'd')
-turtle.onkey(lambda: p2aim.rotate(90), 'j')
-turtle.onkey(lambda: p2aim.rotate(-90), 'l')
+turtle.onkey(lambda: p2aim.rotate(90), 'Right')
+turtle.onkey(lambda: p2aim.rotate(-90), 'Left')
 
 draw()
 
