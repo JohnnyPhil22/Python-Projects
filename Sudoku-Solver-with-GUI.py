@@ -1,125 +1,184 @@
 from tkinter import *
 
-root = Tk()
-root.geometry('275x283')
 
-class SolveSudoku():
-    def __init__(self):
-        self.allZero()
-        self.startSolution()
+# Symbol generation for n columns
+# Supports n from 1 to 16 (1-9, A-F)
+def make_symbols(n):
+    if n < 1 or n > 16:
+        raise ValueError("This GUI supports 1 <= n <= 16 (single-character symbols).")
+    base = [str(i) for i in range(1, min(n, 9) + 1)]
+    if n > 9:
+        extra = [chr(ord("A") + k) for k in range(n - 9)]
+        base.extend(extra)
+    return base
 
-    # Set the empty cells to 0
-    def allZero(self):
-        for i in range(9):
-            for j in range(9):
-                if savedNumbers[i][j].get() not in ['1','2','3','4','5','6','7','8','9']:
-                    savedNumbers[i][j].set(0)
 
-    # Start the Algorithm
-    def startSolution(self, i=0, j=0):
-        i,j = self.findNextCellToFill(i, j)
-        
-        # If i == -1 the position is Ok or the Sudoku is Solved
+class SolveSudoku:
+    def __init__(self, savedNumbers, m, n, sub_m, sub_n, symbols):
+        self.savedNumbers = savedNumbers
+        self.m = m
+        self.n = n
+        self.sub_m = sub_m
+        self.sub_n = sub_n
+        self.symbols = symbols
+        self._normalize_empty()
+        self._start_solution()
+
+    # Set all non-valid inputs to 0
+    def _normalize_empty(self):
+        valid = set(self.symbols)
+        for i in range(self.m):
+            for j in range(self.n):
+                val = self.savedNumbers[i][j].get().strip()
+                if val not in valid:
+                    self.savedNumbers[i][j].set("0")
+
+    # Entry point for the backtracking recursion; fills from top-left
+    def _start_solution(self, i=0, j=0):
+        i, j = self._find_next_cell_to_fill(i, j)
         if i == -1:
-            return True
-        for e in range(1,10):
-            if self.isValid(i,j,e):
-                savedNumbers[i][j].set(e)
-                if self.startSolution(i, j):
+            return True  # No empty cells left => solved
+
+        for sym in self.symbols:
+            if self._is_valid(i, j, sym):
+                self.savedNumbers[i][j].set(sym)
+                if self._start_solution(i, j):
                     return True
-                # Undo the current cell for backtracking
-                savedNumbers[i][j].set(0)
+                # Backtrack
+                self.savedNumbers[i][j].set("0")
+
         return False
 
-    # Search the Nearest Cell to fill
-    def findNextCellToFill(self, i, j):
-        for x in range(i,9):
-            for y in range(j,9):
-                if savedNumbers[x][y].get() == '0':
-                    return x,y
-        
-        for x in range(0,9):
-            for y in range(0,9):
-                if savedNumbers[x][y].get() == '0':
-                    return x,y
-        
-        return -1,-1
+    # Scan from (i,j) to find the next cell with 0
+    def _find_next_cell_to_fill(self, i, j):
+        for x in range(i, self.m):
+            for y in range(j if x == i else 0, self.n):
+                if self.savedNumbers[x][y].get() == "0":
+                    return x, y
 
-    # Check the Validity of savedNumbers[i][j]
-    def isValid(self, i, j, e):
-        for x in range(9):
-            if savedNumbers[i][x].get() == str(e):
+        for x in range(self.m):
+            for y in range(self.n):
+                if self.savedNumbers[x][y].get() == "0":
+                    return x, y
+
+        return -1, -1
+
+    # Check Sudoku constraints for placing 'sym' at (i, j):
+    def _is_valid(self, i, j, sym):
+        # Row check
+        for x in range(self.n):
+            if self.savedNumbers[i][x].get() == sym:
                 return False
-        
-        for x in range(9):
-            if savedNumbers[x][j].get() == str(e):
+
+        # Column check
+        for x in range(self.m):
+            if self.savedNumbers[x][j].get() == sym:
                 return False
-        
-        # Finding the Top x,y Co-ordinates of the section containing the i,j cell 
-        secTopX, secTopY = 3 *int((i/3)), 3 *int((j/3))
-        for x in range(secTopX, secTopX+3):
-            for y in range(secTopY, secTopY+3):
-                if savedNumbers[x][y].get() == str(e):
+
+        # Subgrid check
+        start_row = i - (i % self.sub_m)
+        start_col = j - (j % self.sub_n)
+        for r in range(start_row, start_row + self.sub_m):
+            for c in range(start_col, start_col + self.sub_n):
+                if self.savedNumbers[r][c].get() == sym:
                     return False
-        
+
         return True
 
-class Launch():
-    # Set Title, Grid and Menu
-    def __init__(self, master):
-        # Title and settings
+
+class Launch:
+    def __init__(self, master, m=9, n=9, sub_m=3, sub_n=3):
+        # Basic validation
+        if m % sub_m != 0 or n % sub_n != 0:
+            raise ValueError("m must be divisible by sub_m and n by sub_n.")
         self.master = master
-        master.title("Sudoku Solver")
-        
-        font = ('Arial', 18)
-        color = 'white'
-        
-        # Front-end Grid
-        self.__table = []
-        for i in range(1,10):
-            self.__table += [[0,0,0,0,0,0,0,0,0]]
-            
-        for i in range(0,9):
-            for j in range(0,9):
-                self.__table[i][j]=Entry(master,width=2,font=font,bg=color,cursor='arrow',borderwidth=0,highlightcolor='yellow',highlightthickness=1,highlightbackground='black',textvar=savedNumbers[i][j])
-                self.__table[i][j].bind('<Motion>', self.correctGrid)
-                self.__table[i][j].bind('<FocusIn>', self.correctGrid)
-                self.__table[i][j].bind('<Button-1>', self.correctGrid)
-                self.__table[i][j].grid(row=i, column=j)
-        
-        # Front-End Menu
+        self.m = m
+        self.n = n
+        self.sub_m = sub_m
+        self.sub_n = sub_n
+        self.symbols = make_symbols(n)
+        self.valid_set = set(self.symbols)
+
+        # Window setup
+        master.title("Sudoku Solver (Generalized)")
+        # Width tuning: each Entry ~ 36px wide; keep it compact but readable.
+        cell_px = 32
+        pad_px = 8
+        w = n * cell_px + 2 * pad_px
+        h = m * (cell_px + 2) + 70
+        master.geometry(f"{max(260, w)}x{max(280, h)}")
+
+        # Build StringVar grid (model)
+        self.savedNumbers = [[StringVar(master) for _ in range(n)] for _ in range(m)]
+
+        # Build Entry grid (view)
+        # Use single-character width and a readable font.
+        font = ("Arial", 16)
+        bg = "white"
+        self._table = [[None for _ in range(n)] for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                e = Entry(
+                    master,
+                    width=2,
+                    font=font,
+                    bg=bg,
+                    cursor="arrow",
+                    borderwidth=0,
+                    highlightcolor="yellow",
+                    highlightthickness=1,
+                    highlightbackground="black",
+                    textvariable=self.savedNumbers[i][j],
+                    justify="center",
+                )
+                # Light block borders every subgrid for visual aid
+                top = 2 if i % self.sub_m == 0 else 1
+                left = 2 if j % self.sub_n == 0 else 1
+                e.grid(row=i, column=j, padx=(left, 1), pady=(top, 1))
+                e.bind("<KeyRelease>", self._sanitize_inputs)
+                e.bind("<FocusOut>", self._sanitize_inputs)
+                e.bind("<Button-1>", self._sanitize_inputs)
+                self._table[i][j] = e
+
+        # Menu setup
         menu = Menu(master)
-        master.config(menu = menu)
-        menu.add_command(label = 'Exit', command = master.quit)
-        menu.add_command(label = 'Solve', command = self.solveInput)
-        menu.add_command(label = 'Clear', command = self.clearAll)
+        master.config(menu=menu)
+        menu.add_command(label="Solve", command=self.solve_input)
+        menu.add_command(label="Clear", command=self.clear_all)
+        menu.add_command(label="Exit", command=master.quit)
 
-    # Correct the Grid if inputs are uncorrect
-    def correctGrid(self, event):
-        for i in range(9):
-            for j in range(9):
-                if savedNumbers[i][j].get() == '':
+    # Ensure only valid symbols (or empty) remain in the fields
+    def _sanitize_inputs(self, event=None):
+        for i in range(self.m):
+            for j in range(self.n):
+                v = self.savedNumbers[i][j].get().strip().upper()
+                if v == "":
+                    # allow blank; solver will convert to "0"
                     continue
-                if len(savedNumbers[i][j].get()) > 1 or savedNumbers[i][j].get() not in ['1','2','3','4','5','6','7','8','9']:
-                    savedNumbers[i][j].set('')
+                # only single-char symbols 1..n allowed
+                if len(v) != 1 or v not in self.valid_set:
+                    self.savedNumbers[i][j].set("")
 
-    # Clear the Grid
-    def clearAll(self):
-        for i in range(9):
-            for j in range(9):
-                savedNumbers[i][j].set('')
+    # Clear every cell in the grid
+    def clear_all(self):
+        for i in range(self.m):
+            for j in range(self.n):
+                self.savedNumbers[i][j].set("")
 
-    # Calls the class SolveSudoku
-    def solveInput(self):
-        solution = SolveSudoku()
+    # Solve using current grid values.
+    def solve_input(self):
+        solver = SolveSudoku(
+            self.savedNumbers, self.m, self.n, self.sub_m, self.sub_n, self.symbols
+        )
+        if not solver._start_solution():
+            print("No solution exists for the given input.")
 
-# Global Matrix where are stored the numbers
-savedNumbers = []
-for i in range(1,10):
-    savedNumbers += [[0,0,0,0,0,0,0,0,0]]
-for i in range(0,9):
-    for j in range(0,9):
-        savedNumbers[i][j] = StringVar(root)
 
-app = Launch(root)
-root.mainloop()
+if __name__ == "__main__":
+    root = Tk()
+
+    m, n = 9, 9
+    sub_m, sub_n = 3, 3
+
+    app = Launch(root, m=m, n=n, sub_m=sub_m, sub_n=sub_n)
+    root.mainloop()
