@@ -3,12 +3,14 @@ import tkinter
 root = tkinter.Tk()
 root.title("BMI Calculator")
 
+
 # Create function(s)
 def calculate_bmi():
     kg = float(entry_kg.get())
     height = float(entry_height.get())
-    bmi = round((kg / (height ** 2))*10000, 2)
-    label_result['text'] = f"BMI: {bmi}"
+    bmi = round((kg / (height**2)) * 10000, 2)
+    label_result["text"] = f"BMI: {bmi}"
+
 
 # Create GUI
 label_kg = tkinter.Label(root, text="KG: ")

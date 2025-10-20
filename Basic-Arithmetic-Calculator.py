@@ -5,17 +5,20 @@ root.title("Calculator")
 
 expression = ""
 
+
 # Create functions
 def add(value):
     global expression
     expression += value
     label_result.config(text=expression)
-    
+
+
 def clear():
     global expression
     expression = ""
     label_result.config(text=expression)
-    
+
+
 def calculate():
     global expression
     result = ""
@@ -49,10 +52,10 @@ def key_handler(event):
     elif event.keysym in ("Return", "equal"):
         calculate()
     elif event.keysym == "BackSpace":
-        expression = expression[0:len(expression)-1]
+        expression = expression[0 : len(expression) - 1]
         label_result.config(text=expression)
-        
-    
+
+
 root.bind("<Key>", key_handler)
 
 # Create GUI

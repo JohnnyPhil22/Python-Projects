@@ -1,22 +1,22 @@
 from turtle import *
 
-title('Turtle Star')
-bgcolor('black')
+title("Turtle Star")
+bgcolor("black")
 
-f='r'
+f = "r"
 
 while True:
-    if f=='r':
-        color('red')
+    if f == "r":
+        color("red")
         forward(200)
         left(170)
         if abs(pos()) < 1:
-            f='w'
-    if f=='w':
-        color('white')
+            f = "w"
+    if f == "w":
+        color("white")
         forward(200)
         left(170)
         if abs(pos()) < 1:
-            f='r'
+            f = "r"
 
 mainloop()

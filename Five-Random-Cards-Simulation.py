@@ -9,51 +9,59 @@ pen = turtle.Turtle()
 pen.speed(0)
 pen.hideturtle()
 
-class Card():
+
+class Card:
     def __init__(self, name, suit):
         self.name = name
         self.suit = suit
-        self.symbols = {"D":"♦", "C":"♣", "H":"♥", "S":"♠"}
-        
+        self.symbols = {"D": "♦", "C": "♣", "H": "♥", "S": "♠"}
+
     def print_card(self):
         print(f"{self.name}{self.symbols[self.suit]}")
-        
+
     def render(self, x, y, pen):
         pen.penup()
         pen.goto(x, y)
         pen.color("red")
-        pen.goto(x-50, y+75)
+        pen.goto(x - 50, y + 75)
         pen.begin_fill()
         pen.pendown()
-        pen.goto(x+50, y+75)
-        pen.goto(x+50, y-75)
-        pen.goto(x-50, y-75)
-        pen.goto(x-50, y+75)
+        pen.goto(x + 50, y + 75)
+        pen.goto(x + 50, y - 75)
+        pen.goto(x - 50, y - 75)
+        pen.goto(x - 50, y + 75)
         pen.end_fill()
         pen.penup()
-        
+
         if self.name != "":
             pen.color("black")
-            pen.goto(x-18, y-30)
-            pen.write(self.symbols[self.suit], False, font=("Courier New", 48, "normal"))
-            
-            pen.goto(x-40, y+45)
+            pen.goto(x - 18, y - 30)
+            pen.write(
+                self.symbols[self.suit], False, font=("Courier New", 48, "normal")
+            )
+
+            pen.goto(x - 40, y + 45)
             pen.write(self.name, False, font=("Courier New", 18, "normal"))
-            pen.goto(x-40, y+25)
-            pen.write(self.symbols[self.suit], False, font=("Courier New", 18, "normal"))
-            
-            pen.goto(x+30, y-60)
+            pen.goto(x - 40, y + 25)
+            pen.write(
+                self.symbols[self.suit], False, font=("Courier New", 18, "normal")
+            )
+
+            pen.goto(x + 30, y - 60)
             pen.write(self.name, False, font=("Courier New", 18, "normal"))
-            pen.goto(x+30, y-80)
-            pen.write(self.symbols[self.suit], False, font=("Courier New", 18, "normal"))
-            
-class Deck():
+            pen.goto(x + 30, y - 80)
+            pen.write(
+                self.symbols[self.suit], False, font=("Courier New", 18, "normal")
+            )
+
+
+class Deck:
     def __init__(self):
         self.cards = []
-        
+
         names = ("A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2")
         suits = ("D", "C", "H", "S")
-        
+
         for name in names:
             for suit in suits:
                 card = Card(name, suit)
@@ -65,19 +73,20 @@ class Deck():
     def get_card(self):
         card = self.cards.pop()
         return card
-        
+
     def reset(self):
         self.cards = []
-        
+
         names = ("A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2")
         suits = ("D", "C", "H", "S")
-        
+
         for name in names:
             for suit in suits:
                 card = Card(name, suit)
                 self.cards.append(card)
-        
+
         self.shuffle()
+
 
 deck = Deck()
 
